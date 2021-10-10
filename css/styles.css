@@ -88,6 +88,8 @@ margin-right: 50px;
 }
 
 .header-contacts-link{
+    display: flex;
+    align-items: center;
 font-weight: 500;
 line-height: 1.14;
 letter-spacing: 0.02em;
@@ -130,12 +132,14 @@ fill: var(--primery-text-color);
 .contacts-icon{
 margin-right: 10px;
 transition: color 250ms ease;
+fill: currentColor;
 }
-
+/*
 .contacts-icon:hover,
 .contacts-icon:focus{
 fill: var(--accent-color);
-}
+}*/
+
 .current::after{
     content:'' ;
     position: absolute;
@@ -457,46 +461,50 @@ height: 44px;
 display: flex;
 margin-left: -30px;
 flex-wrap: wrap;
+margin-top: -30px;
 }
 
-.client-item{
-width: 170px;
+.client-link{
+display: flex;
+align-items: center;
+justify-content: center;
 height: 92px;
-border: 1px solid #AFB1B8; 
-padding-right: 32px;
-padding-left: 32px;
-cursor: pointer;
-transition: background-color 250ms ease, border-color 250ms ease;
+border: 1px solid; 
+border-color: var(--client-color);
+border-radius: 4px;
+color: var(--client-color);
+
+transition: border-color 250ms ease, color 250ms ease;
 }
 
 .client-item{
 width: calc(100% / 6 - 30px);
 margin-left: 30px;
- }
+margin-top: 30px;
+}
 
- .client-item:hover,
- .client-item:focus{
+ .client-link:hover,
+ .client-link:focus{
  border-color: var(--accent-color);
+ color: var(--accent-color);
+ outline: none;
 }
 .client-icon {
-width: 100%;
-height: 100%;
-fill: var(--client-color);
-transition: background-color 250ms ease, fill 250ms ease;
+width: 106px;
+height: 60px;
+fill: currentColor;
 }
-/*
- .client-link:hover,
- .client-link:focus {
-fill: var(--accent-color);
- }
- */
-.client-icon:hover,
-.client-icon:focus{
-fill:var(--accent-color)
-}
+
+
+
 
 
 /*-----footer---*/
+
+
+
+
+
 .footer{
 background-color:var(--color-footer);
 padding-top: 60px;
@@ -622,8 +630,11 @@ background-color: var(--accent-color);
 color: var(--primary-title-color);
 }
 
-.product-name:hover {
+.product-link:hover,
+.product-link:focus {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    outline: none;
+transform: ;
   }
 /*продукд*/
 
@@ -634,7 +645,9 @@ flex-wrap: wrap;
 margin-left: -30px;
 margin-top: -30px;
 }
-
+.product-link{
+    display: block;
+}
 .product-name-list{
 font-weight: 700;
 font-size: 18px;
@@ -642,7 +655,6 @@ line-height: 1.71;
 letter-spacing: 0.06em;
 color: var(--secondary-title-color);
 margin-top: 20px;
-
 }
 
 
