@@ -131,7 +131,6 @@ fill: var(--primery-text-color);
 
 .contacts-icon{
 margin-right: 10px;
-transition: color 250ms ease;
 fill: currentColor;
 }
 /*
@@ -148,7 +147,7 @@ fill: var(--accent-color);
     border-radius: 2px;
     background-color: var(--accent-color);
     display: block;
-    bottom: 0px;
+    bottom: -1px;
 }
 /*---------------ховери та фокус------------------*/
 
@@ -326,19 +325,15 @@ margin-top: -30px;
 .representation-item-img{
     margin-left: 30px;
     margin-top: 30px;
-    width: calc(100% / 3 -30px);
-    
-    
-}
-.representation-top{
+    width: calc(100% / 3 - 30px);
     position: relative;
     overflow: hidden;
-   
     }
+
 
 .representation-top-text{
     text-align: center;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     line-height: 2;
     color: var(--primary-title-color);
@@ -645,7 +640,7 @@ margin-left: -30px;
 margin-top: -30px;
 }
 .product-link{
-    display: block;
+display: block;
 }
 .product-name-list{
 font-weight: 700;
@@ -653,7 +648,7 @@ font-size: 18px;
 line-height: 1.71;
 letter-spacing: 0.06em;
 color: var(--secondary-title-color);
-margin-top: 20px;
+
 }
 
 
@@ -673,8 +668,10 @@ border-bottom: 1px solid #EEEEEE;
 }
 
 
-.product-name:hover .portfolio-top-text{
+.product-link:hover .portfolio-top-text,
+.product-link:focus .portfolio-top-text{
 transform: translateY(0);
+opacity: 1;
 }
 .product-name-top{
 position: relative;
@@ -683,57 +680,76 @@ overflow: hidden;
 .portfolio-top-text{
 text-align: left;
 font-weight: 400;
-font-size: 14px;
-line-height: 2;
+font-size: 18px;
+line-height: 1.6;
 color: var(--color-btn);
-background-color: var(--accent-color);
+background-color: rgba(33, 150, 243, 0.9);
 position: absolute;
 top:0;
 height: 100%;
 padding: 63px 24px;
 transform: translateY(100%);
-transition: transform 250ms ease;
+opacity: 0;
+transition: transform 250ms ease, opacity 250ms ease;
 }
     
 .product-text{
-padding: 20px 20px;
+padding: 20px 24px;
 }
 
 
 
 /*-----------модальное окно---------------*/
 .backdrop.is-hidden{
-opacity: 0;
 visibility: hidden;
 pointer-events: none;
-
+opacity: 0;
 }
 .backdrop{
 position: fixed;
-position: absolute;
 width: 100vw;
 height: 100vh;
-background-color: rgba(255, 255, 255, 0.6);
+background-color: rgba(0, 0, 0, 0.2);
 top: 0;
+visibility: visible;
 display: flex;
 align-items: center;
 justify-content: center;
-transition: opacity 250ms ease-in-out;
+transition: opacity 250ms ease-in-out, 
+visibility 250ms ease-in-out;
 }
+
 .modal{
 min-width: 525px;
 min-height: 581px;
 background-color: #ffffff;
 border-radius: 10px;
 position: relative;
+transform: scale(1);
+opacity: 1;
+transition: opacity 250ms ease-in-out, 
+transform 250ms ease-in-out;
 }
 .close-btn{
+display: flex;
 position: absolute;
-top: 10px;
-right: 10px;
+top: 8px;
+right: 8px;
 background-color: transparent;
 border-radius: 50%;
 width: 30px;
 height: 30px;
 border: 1px solid #999999;
+align-items: center; 
+justify-content: center;
 }
+.backdrop.is-hidden .modal{
+opacity: 0;
+transform: scale(0);
+}
+.close-icon{
+width: 18px;
+height: 18px;
+fill:var(--secondary-title-color);
+
+ }
